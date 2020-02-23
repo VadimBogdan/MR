@@ -22,13 +22,14 @@ public class Main {
         int dimension = 5;
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println(creator);
+
         try {
             dimension = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.err.println("\n Using default dimension = 5");
         }
 
-        System.out.println(creator);
 
         short[][] matrix = new short[dimension][dimension];
 
