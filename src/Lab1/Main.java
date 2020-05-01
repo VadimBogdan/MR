@@ -19,13 +19,15 @@ public class Main {
     public static void main(String[] args) {
         String creator = "Bohdan V. V.";
         Random random = new Random();
-        int dimension = 5;
+        int dimension = 5,
+        col = 1;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(creator);
 
         try {
             dimension = scanner.nextInt();
+            col = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.err.println("\n Using default dimension = 5");
         }
@@ -41,17 +43,30 @@ public class Main {
 
         showShortMatrix(matrix, dimension);
 
-        for (int k = 0; k < dimension; k++) {
-            for (int i = 0; i < dimension; i++) {
-                for (int j = 0; j < dimension - 1 - i; j++) {
-                    if (matrix[j][k] > matrix[j + 1][k]) {
-                        short temp = matrix[j][k];
-                        matrix[j][k] = matrix[j + 1][k];
-                        matrix[j + 1][k] = temp;
+        short temp = 0;
+        for (int i = 0, k = col; i < dimension; i++) {
+            for (int j = 0; j < dimension - 1 - i; j++) {
+                if (matrix[j][k] > matrix[j + 1][k]) {
+                    for (int l = 0; l < dimension; l++) {
+                        temp = matrix[j][l];
+                        matrix[j][l] = matrix[j + 1][l];
+                        matrix[j + 1][l] = temp;
                     }
                 }
             }
         }
+
+//        for (int k = 0; k < dimension; k++) {
+//            for (int i = 0; i < dimension; i++) {
+//                for (int j = 0; j < dimension - 1 - i; j++) {
+//                    if (matrix[j][k] > matrix[j + 1][k]) {
+//                        short temp = matrix[j][k];
+//                        matrix[j][k] = matrix[j + 1][k];
+//                        matrix[j + 1][k] = temp;
+//                    }
+//                }
+//            }
+//        }
         showShortMatrix(matrix, dimension);
     }
 }
