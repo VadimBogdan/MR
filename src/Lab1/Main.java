@@ -43,7 +43,7 @@ public class Main {
 
         showShortMatrix(matrix, dimension);
 
-        short temp = 0;
+        short temp;
         for (int i = 0, k = col; i < dimension; i++) {
             for (int j = 0; j < dimension - 1 - i; j++) {
                 if (matrix[j][k] > matrix[j + 1][k]) {
@@ -55,18 +55,6 @@ public class Main {
                 }
             }
         }
-
-//        for (int k = 0; k < dimension; k++) {
-//            for (int i = 0; i < dimension; i++) {
-//                for (int j = 0; j < dimension - 1 - i; j++) {
-//                    if (matrix[j][k] > matrix[j + 1][k]) {
-//                        short temp = matrix[j][k];
-//                        matrix[j][k] = matrix[j + 1][k];
-//                        matrix[j + 1][k] = temp;
-//                    }
-//                }
-//            }
-//        }
         showShortMatrix(matrix, dimension);
     }
 }
